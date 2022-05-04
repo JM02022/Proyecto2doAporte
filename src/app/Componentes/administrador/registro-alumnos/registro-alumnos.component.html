@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <h1 class="titulo">Bienvenido al Registro de Estudiante</h1>
+    <div class="container-fluid">
+        <div class="mb-6 mx-1 mt-5 d-block">
+            <label for="nombre-alumno">Nombre</label>
+            <input type="text" class="form-control form-control-sm " id="nombre-alumno" aria-describedby="nombreHelp"
+                [(ngModel)]="alumno.nombre" placeholder="Ingrese su nombre completo">
+            <label for="correo-alumno">Apellido
+                Paterno </label>
+            <input type="ApellidoP" class="form-control form-control-sm" id="ApellidoP-alumno"
+                aria-describedby="ApellidoPHelp" [(ngModel)]="alumno.ApellsidoPaterno"
+                placeholder="Ingrese su Apellido Paterno"> <label for="correo-alumno">Apellido
+                Materno </label>
+            <input type="ApellidoP" class="form-control form-control-sm" id="ApellidoM-alumno"
+                aria-describedby="ApellidoMHelp" [(ngModel)]="alumno.ApellidoMaterno"
+                placeholder="Ingrese su Apellido Materno"><label for="codigo-alumno">Codigo
+            </label>
+            <input type="text" class="form-control form-control-sm" id="codigo-alumno" aria-describedby="codigoHelp"
+                [(ngModel)]="alumno.codigo" placeholder="Ingrese su codigo "><label for="correo-alumno">Correo </label>
+            <input type="email" class="form-control" id="correo-alumno" aria-describedby="correoHelp"
+                [(ngModel)]="alumno.email" placeholder="Ingrese su correo">
+            <button type="submit" class="btn btn-primary mt-2" (click)="onDatos()">REGISTRAR</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h2>Aqui puedes ver los registros de los estudiantes</h2>
+    <table class="table table-sm ">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">ApellidoPaterno</th>
+                <th scope="col">ApellidoMaterno</th>
+                <th scope="col">Correo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumn of alumnos;index as i">
+                <td>{{alumn.codigo}}</td>
+                <td>{{alumn.nombre}}</td>
+                <td>{{alumn.ApellidoPaterno}}</td>
+                <td>{{alumn.ApellidoMaterno}}</td>
+                <td>{{alumn.email}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="onModificar(0)">EDITAR</button>
+                    <button type="button" class="btn btn-danger" (click)="onEliminar(0)">ELIMINAR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
